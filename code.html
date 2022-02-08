@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App name: a coding project by aidé oropeza</title>
+    <title>Inside-Out: a coding project by aidé oropeza</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <!--Nav Section-->
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="index.html"><img src="img/ocblue.png" width= "70px" class="d-inline-block align-text-top"> app name </a>
+            <a class="navbar-brand logoFont" href="index.html"><img src="img/ocblue.png" width= "70px" class="d-inline-block align-text-top"> Inside-Out </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,21 +51,52 @@
     <!--Main Section-->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom text-gradient text-primary fw-bold">Inside-Out: The Code</h2>
              <div class="row row-cols-1 row-cols-lg-2">
                  <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            //call hello world
-                            function helloWorld(){
-                                alert("hello world");
+                        //get the string from the page
+                        //controller function
+                        function getString(){
+                            document.getElementById("alert").classList.add("invisible");
+                        
+                            let userString = document.getElementById("userString").value;
+                        
+                            let revString = reverseString(userString);
+                        
+                            displayString(revString);
+                        }
+                        //reverse the string
+                        //logic function
+                        function reverseString(userString){
+                            let revString = [];
+                        
+                            //reverse a string using a for loop
+                            for (let index = userString.length-1; index >= 0; index--) {
+                                revString += userString[index];
+                                
                             }
+                            return revString;
+                        }
+                        
+                        //display reversed string
+                        //view function
+                        function displayString(revString){
+                            //write to page
+                            document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+                            //show alert box
+                            document.getElementById("alert").classList.remove("invisible");
+                        }
                         </code>
                     </pre>
                  </div>
                  <div class="col-lg-4">
-                    <p>The Code is structed in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello world is a function that displays an alert with a message of "Hello World"</p>
+                    <h4 class="text-gradient text-primary fw-bold">getString()</h4>
+                    <p>This function simply gets the string with the <span class="text-gradient text-primary fw-bold">.getElementById()</span> method and sets it equal to the userString variable. It also passes the string to the <span class="text-gradient text-primary fw-bold">reverseString()</span> function and passes the reversed string to the <span class="text-gradient text-primary fw-bold">displayString()</span> function.</p>
+                    <h4 class="text-gradient text-primary fw-bold">reverseString()</h4>
+                    <p>This function uses a <span class="text-gradient text-primary fw-bold">for-loop</span> to loop backwards through each letter of the string and pass it to the <span class="text-gradient text-primary fw-bold">revString</span> array.</p>
+                    <h4 class="text-gradient text-primary fw-bold">displayString()</h4>
+                    <p>This function uses the <span class="text-gradient text-primary fw-bold">.innerHTML</span> to write "Your string reversed is: (the reversed string)". It also turns on the visibility of the result by removing the invisible option on the div's class of the result.</p>
                  </div>
              </div>
         </div>
